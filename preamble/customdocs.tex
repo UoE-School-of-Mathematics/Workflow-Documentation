@@ -26,13 +26,15 @@
 \newenvironment{ans}
 {\begin{itemize}\item[]\textbf{A:}}{\end{itemize}}
 
-% Collapsible code snippet
+% Collapsible box for code snippets in the HTML version
 \iflatexml
-    \lstnewenvironment{snippet}
-        {\<details style="text-align: left; width: 100\%" closed=""> \<summary> \textbf{Code snippet} \</summary>}
+    \newenvironment{snippet}[1][\LaTeX{} snippet]
+        {\<details style="text-align: left; width: 100\%" closed=""> \<summary> \textbf{View #1} \</summary>}
         {\</details>}
 \else
-    \lstnewenvironment{snippet}{}{}
+    \newenvironment{snippet}[1][\LaTeX{} snippet]
+    {\textbf{#1}}
+    {}
 \fi
 
 % collapsible solution
